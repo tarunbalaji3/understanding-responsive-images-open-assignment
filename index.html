@@ -8,9 +8,17 @@
 
 	<!-- Styles -->
 	<link rel="stylesheet" href="normalize.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 	<link href='https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Merriweather:ital,wght@0,400;1,300&display=swap' rel='stylesheet' type='text/css'>
 
 	<style>
+		/* Reset */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 		/* General Styling */
 		body {
 			font: 1em/1.5 'Merriweather', Georgia, serif;
@@ -26,45 +34,22 @@
 			text-align: center;
 		}
 
-		figure {
-			margin: 3em auto;
-			max-width: 45em;
-			text-align: center;
+		figcaption {
+			margin-block-start: 0.5em;
+			margin-block-end: 1.5em;
+			margin-inline-start: 1em;
+			font-style: italic;
+			font-weight: 300;
+			text-align: left;
 		}
 
-			figcaption {
-				margin-top: 1.5em;
-				font-style: italic;
-				font-weight: 300;
-				color: #CC9B70;
-				text-align: left;
-			}
-
-				figcaption::before {
-					content: '- ';
-				}
-
-		figure.fw {
-			max-width: 100%;
+		figcaption::before {
+			content: '- ';
 		}
 
-			figure.fw figcaption,
-			figure.half figcaption {
-				text-align: center;
-			}
-
-				figure.fw figcaption::after,
-				figure.half figcaption::after {
-					content: '-';
-				}
-
-		figure.half {
-			width: 50%;
-			float: left;
-		}
-
-		.figure-grp + .figure-grp figure {
-			margin-top: -3em;
+		.figure-grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
 		}
 
 		blockquote {
@@ -72,7 +57,7 @@
 			font-weight: 300;
 			color: #777;
 			font-size: 1.2em;
-			max-width: 30em;
+			max-inline-size: 30em;
 			margin: 3em auto;
 		}
 
@@ -87,21 +72,18 @@
 
 		p {
 			color: #444;
-			max-width: 45em;
-			margin-left: auto;
-			margin-right: auto;
+			max-inline-size: 65ch;
+			margin-inline: 1em;
+			padding-block: 1.2em;
+			font-size: clamp(1rem, 2vw, 3rem);
 		}
 
 		img {
-			width: 100%;
-			height: auto;
+			inline-size: 100%;
+			block-size: auto;
 			display: block;
 		}
 
-		hr {
-			max-width: 45em;
-			margin: 3em auto;
-		}
 	</style>
 </head>
 <body>
@@ -124,27 +106,23 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore veniam, accusantium ducimus iure exercitationem accusamus alias unde esse reiciendis. Eum!</p>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, asperiores voluptates non maxime sequi consectetur quasi mollitia corrupti excepturi veritatis qui voluptate corporis, quos perspiciatis cum ducimus nostrum ex esse numquam necessitatibus, illum alias consequuntur eum odio adipisci? Doloremque voluptates repudiandae quis ad excepturi facere, temporibus beatae ex atque sint ipsum omnis illo officiis in cum, odio, eum maxime quidem consectetur. Voluptates facilis delectus architecto est dolore, perspiciatis vitae quidem impedit nostrum esse fugit, velit hic eius laborum itaque reprehenderit repellat soluta repellendus aliquam. Veritatis dolorem officia provident dolores, ad quas rerum autem est, totam id fugiat magni mollitia. Illo.</p>
 
-		<div class="figure-grp">
+		<div class="figure-grid">
 			<figure class="half">
 				<img src="https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_300/v1666997143/IDMX268/office-2_ynkp1z.jpg" srcset="https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_300/v1666997143/IDMX268/office-2_ynkp1z.jpg 300w,https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_600/v1666997143/IDMX268/office-2_ynkp1z.jpg 600w, https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_1200/v1666997143/IDMX268/office-2_ynkp1z.jpg 1200w" width="3500" height="2334" alt="office">
 			</figure>
 
 			<figure class="half">
 				<img src="https://res.cloudinary.com/djofr7ill/image/upload/q_auto,w_300/v1666997143/IDMX268/office-3_fdmmjy.jpg" srcset="https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_300/v1666997143/IDMX268/office-3_fdmmjy.jpg 300w,https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_600/v1666997143/IDMX268/office-3_fdmmjy.jpg 600w,https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_1200/v1666997143/IDMX268/office-3_fdmmjy.jpg 1200w" width="3500" height="2333" alt="office">
-			</figure>			
-		</div> <!-- end figure-grp -->
+			</figure>
 
-		<div class="figure-grp">
 			<figure class="half">
 				<img src="https://res.cloudinary.com/djofr7ill/image/upload/q_auto,w_300/v1666997143/IDMX268/office-8_llu297.jpg" srcset="https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_300/v1666997143/IDMX268/office-8_llu297.jpg 300w,https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_600/v1666997143/IDMX268/office-8_llu297.jpg 600w,https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_1200/v1666997143/IDMX268/office-8_llu297.jpg 1200w" width="3500" height="2333" alt="office">
 			</figure>
 
 			<figure class="half">
 				<img src="https://res.cloudinary.com/djofr7ill/image/upload/q_auto,w_300/v1666997144/IDMX268/office-9_khsdw1.jpg" srcset="https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_300/v1666997144/IDMX268/office-9_khsdw1.jpg 300w,https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_600/v1666997144/IDMX268/office-9_khsdw1.jpg 600w,https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_1200/v1666997144/IDMX268/office-9_khsdw1.jpg 1200w" width="3500" height="2333" alt="office">
-			</figure>			
-		</div> <!-- end figure-grp -->
+			</figure>		
 
-		<div class="figure-grp">
 			<figure class="half">
 				<img src="https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_300/v1666997143/IDMX268/office-1_y3esvf.jpg" srcset="https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_300/v1666997143/IDMX268/office-1_y3esvf.jpg 300w,https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_600/v1666997143/IDMX268/office-1_y3esvf.jpg 600w,https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_1200/v1666997143/IDMX268/office-1_y3esvf.jpg 1200w" width="3500" height="2334" alt="office">
 			</figure>
@@ -152,7 +130,7 @@
 			<figure class="half">
 				<img src="https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_300/v1666997143/IDMX268/office-2_ynkp1z.jpg" srcset="https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_300/v1666997143/IDMX268/office-2_ynkp1z.jpg 300w,https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_600/v1666997143/IDMX268/office-2_ynkp1z.jpg 600w,https://res.cloudinary.com/djofr7ill/image/upload/f_auto,q_auto,w_1200/v1666997143/IDMX268/office-2_ynkp1z.jpg 1200w" width="3500" height="2334" alt="office">
 			</figure>			
-		</div> <!-- end figure-grp -->
+		</div> 
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, quisquam voluptatum in ipsa provident blanditiis nesciunt facere. Ea, officiis provident placeat fugit cupiditate minima enim veniam libero hic tempore deserunt iusto qui harum vero consectetur suscipit, architecto cum voluptate assumenda. Eveniet facere officiis ullam, est quasi debitis voluptates corporis culpa!</p>
 
